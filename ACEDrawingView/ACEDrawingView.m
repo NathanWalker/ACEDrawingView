@@ -49,7 +49,6 @@
 @property (nonatomic, strong) NSMutableArray *redoStates;
 @property (nonatomic, strong) NSMutableArray *undoStates;
 
-@property (nonatomic, strong) id<ACEDrawingTool> currentTool;
 @property (nonatomic, strong) UIImage *cacheImage;
 
 @property (nonatomic, strong) ACEDrawingLabelView *draggableTextView;

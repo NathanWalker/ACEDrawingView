@@ -171,7 +171,7 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
         [self setEnableMoveRestriction:NO];
         [self setEnableClose:YES];
         [self setEnableRotate:YES];
-        [self setShowsContentShadow:YES];
+        [self setShowsContentShadow:NO];
         
         [self showEditingHandles];
         [self.labelTextField becomeFirstResponder];
