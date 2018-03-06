@@ -83,9 +83,7 @@
     
     self.redoStates = [NSMutableArray array];
     self.undoStates = [NSMutableArray array];
-    if (self.undoLimit == nil) {
-        self.undoLimit = -1; // default infinite
-    }
+    self.undoLimit = -1; // default infinite
     
     // set the default values for the public properties
     self.lineColor = kDefaultLineColor;
