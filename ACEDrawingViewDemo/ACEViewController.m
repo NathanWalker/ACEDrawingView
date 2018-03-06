@@ -26,6 +26,7 @@
     
     // set the delegate
     self.drawingView.delegate = self;
+    self.drawingView.undoLimit = 10;
     
     // start with a black pen
     self.lineWidthSlider.value = self.drawingView.lineWidth;

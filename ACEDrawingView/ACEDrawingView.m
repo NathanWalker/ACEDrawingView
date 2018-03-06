@@ -584,14 +584,10 @@
 
 - (void)enforceUndoLimit
 {
-    NSLog(@"enforceUndoLimit!");
     if (self.undoStates != nil && self.undoLimit > -1) {
-        NSLog(@"enforceUndoLimit %lu", (unsigned long)self.undoLimit);
-        NSLog(@"self.undoStates.count %lu", (unsigned long)self.undoStates.count);
         if (self.undoLimit > -1 && self.undoStates.count >= self.undoLimit) {
             // remove first object
             [self.undoStates removeObjectAtIndex:0];
-            NSLog(@"removed index 0 self.undoStates.count %lu", (unsigned long)self.undoStates.count);
         } 
     }
 }

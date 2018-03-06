@@ -229,6 +229,10 @@
 						CreatedOnToolsVersion = 7.3.1;
 						TestTargetID = 7B5AD3F5169A072800904C6B;
 					};
+					7B5AD3F5169A072800904C6B = {
+						DevelopmentTeam = CS838V553Y;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 7B5AD3F0169A072800904C6B /* Build configuration list for PBXProject "ACEDrawingViewDemo" */;
@@ -534,11 +538,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D6801415A1667A65D59C4F83 /* Pods-ACEDrawingViewDemo.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CS838V553Y;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACEDrawingViewDemo/ACEDrawingViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "ACEDrawingViewDemo/ACEDrawingViewDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.acetools.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -547,11 +556,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD8605C60ECCA761EB40D225 /* Pods-ACEDrawingViewDemo.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CS838V553Y;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ACEDrawingViewDemo/ACEDrawingViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "ACEDrawingViewDemo/ACEDrawingViewDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.acetools.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
