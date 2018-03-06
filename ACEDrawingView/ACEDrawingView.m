@@ -584,13 +584,16 @@
 
 - (void)enforceUndoLimit
 {
-    NSLog(@"enforceUndoLimit %d", self.undoLimit);
-    NSLog(@"self.undoStates.count %d", self.undoStates.count);
-    if (self.undoLimit > -1 && self.undoStates.count >= self.undoLimit) {
-        // remove first object
-        [self.undoStates removeObjectAtIndex:0];
-        NSLog(@"removed index 0 self.undoStates.count %d", self.undoStates.count);
-    } 
+    NSLog(@"enforceUndoLimit!");
+    if (self.undoStates != nil && self.undoLimit > -1) {
+        NSLog(@"enforceUndoLimit %lu", self.undoLimit);
+        NSLog(@"self.undoStates.count %lu", self.undoStates.count);
+        if (self.undoLimit > -1 && self.undoStates.count >= self.undoLimit) {
+            // remove first object
+            [self.undoStates removeObjectAtIndex:0];
+            NSLog(@"removed index 0 self.undoStates.count %lu", self.undoStates.count);
+        } 
+    }
 }
 
 - (BOOL)lastStateForTool:(id<ACEDrawingTool>)tool inStateArray:(NSArray *)stateArray
