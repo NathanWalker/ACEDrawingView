@@ -84,6 +84,9 @@
     
     self.redoStates = [NSMutableArray array];
     self.undoStates = [NSMutableArray array];
+    if (self.undoLimit == nil) {
+        self.undoLimit = -1; // default infinite
+    }
     
     // set the default values for the public properties
     self.lineColor = kDefaultLineColor;
@@ -324,6 +327,7 @@
     } else {
         [self.pathArray addObject:self.currentTool];
         [self.undoStates addObject:[self.currentTool captureToolState]];
+        [self enforceUndoLimit];
         
         [self.currentTool setInitialPoint:currentPoint];
     }
@@ -567,6 +571,7 @@
         
         // update undo states
         [self.undoStates addObject:[self.redoStates lastObject]];
+        [self enforceUndoLimit];
         [self.redoStates removeLastObject];
         
         // redraw
@@ -578,6 +583,14 @@
             [self.delegate drawingView:self didRedoDrawUsingTool:redoState.tool];
         }
     }
+}
+
+- (void)enforceUndoLimit
+{
+    if (self.undoLimit > -1 && self.undoStates.count >= self.undoLimit) {
+        // remove first object
+        [self.undoStates removeObjectAtIndex:0];
+    } 
 }
 
 - (BOOL)lastStateForTool:(id<ACEDrawingTool>)tool inStateArray:(NSArray *)stateArray
@@ -626,7 +639,10 @@
 {
     ACEDrawingDraggableTextTool *tool = [self draggableTextToolForLabel:label];
     
-    if (tool) { [self.undoStates addObject:[tool captureToolState]]; }
+    if (tool) { 
+        [self.undoStates addObject:[tool captureToolState]]; 
+        [self enforceUndoLimit];
+    }
 }
 
 - (void)labelViewWillShowEditingHandles:(ACEDrawingLabelView *)label
@@ -658,6 +674,7 @@
     
     if (numberOfStates == 0 && tool) {
         [self.undoStates addObject:[tool captureToolState]];
+        [self enforceUndoLimit];
         
         // call the delegate
         if ([self.delegate respondsToSelector:@selector(drawingView:didEndDrawUsingTool:)]) {

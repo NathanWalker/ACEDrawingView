@@ -53,6 +53,7 @@ typedef NS_ENUM(NSUInteger, ACEDrawingMode) {
 @property (nonatomic, assign) ACEDrawingToolType drawTool;
 @property (nonatomic, strong) id<ACEDrawingTool> customDrawTool;
 @property (nonatomic, assign) id<ACEDrawingViewDelegate> delegate;
+@property (nonatomic, strong) NSInteger undoLimit;
 
 // public properties
 @property (nonatomic, strong) UIColor *lineColor;
