@@ -89,6 +89,8 @@ typedef NS_ENUM(NSUInteger, ACEDrawingMode) {
 - (BOOL)canRedo;
 - (void)redoLatestStep;
 
+- (void)enforceUndoLimit;
+
 - (UIImage *)applyDrawToImage:(UIImage *)baseImage;
 
 /**
